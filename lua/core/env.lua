@@ -1,6 +1,8 @@
 local function loadEnvFile(filePath)
     local file = io.open(filePath, "r") -- Open the file for reading
-    if not file then return end
+    if not file then
+        return
+    end
 
     for line in file:lines() do
         if line:match("%S") and not line:match("^#") then -- Ignore empty lines and comments

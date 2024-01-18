@@ -1,1 +1,1 @@
-require("lazy").setup({"cormacrelf/dark-notify"})
+require("lazy").setup({ "cormacrelf/dark-notify" })
