@@ -59,7 +59,7 @@ require("lazy").setup({
     { "cormacrelf/dark-notify" }, -- used to synchronize a theme with the system theme
     { "zbirenbaum/copilot.lua" },
     { "robitx/gp.nvim" }, -- chatgpt client
-    { "Exafunction/codeium.vim", event = "BufEnter" },
+    -- { "Exafunction/codeium.vim", event = "BufEnter" },
     {
         "nvimdev/dashboard-nvim",
         event = "VimEnter",
