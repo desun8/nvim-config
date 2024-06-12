@@ -1,5 +1,8 @@
 local cmp = require("cmp")
 
+-- Add snippets
+vim.g.vsnip_snippet_dir = os.getenv("HOME") .. '/.config/nvim/lua/snippets'
+
 cmp.setup({
     -- Disable auto-show popup
     completion = { completeopt = "menu,menuone,noselect" },
