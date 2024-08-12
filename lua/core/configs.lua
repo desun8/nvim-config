@@ -13,6 +13,8 @@ vim.wo.linebreak = true
 vim.opt.virtualedit = "block"
 vim.opt.undofile = true
 vim.opt.shell = "/bin/zsh"
+-- Show which line your cursor is on
+vim.opt.cursorline = true
 
 -- Folding
 vim.opt.foldmethod = "expr"
@@ -29,4 +31,4 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.smartindent = true
 
-vim.opt.fileencoding = "utf-8"
+-- vim.opt.fileencoding = "utf-8"

@@ -33,4 +33,13 @@ require("nvim-tree").setup({
             return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
         end,
     },
+
+    filters = {
+        dotfiles = true,
+    },
+
+    -- Open current buffer 
+    update_focused_file = {
+      enable = true,
+    }
 })

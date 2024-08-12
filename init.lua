@@ -1,30 +1,40 @@
--- Basic
+-- BASIC
 require("core.env")
 require("core.plugins")
 require("core.configs")
 require("core.mappings")
 require("core.colors")
 
--- Plugins
-require("plugins.treesitter")
-require("plugins.neodev") -- should be before lsp
-require("plugins.lsp")
-require("plugins.cmp")
-require("plugins.mason")
-require("plugins.telescope")
+-- PLUGINS
+-- UI
+require('plugins.dark-notify')
 require("plugins.devicons")
 require("plugins.nvimtree")
-require("plugins.dashboard")
-require("plugins.nullls")
 require("plugins.lualine")
-require("plugins.bufferline")
-require("plugins.whichkey")
-require("plugins.autopairs")
-require("plugins.autotag")
-require("plugins.surround")
-require("plugins.comment")
+require('plugins.session')
+require('plugins.colorizer')
+-- require("plugins.dashboard")
+-- require("plugins.bufferline")
+-- require("plugins.whichkey")
+
+-- Code
+require("plugins.mason")
+require("plugins.treesitter")
+require("plugins.lsp.index")
+require("plugins.cmp")
+require("plugins.nullls")
+-- require("plugins.neodev") -- helper for lua config (deprecated) - new version lazydev.nvim
+
+-- Git
 require("plugins.gitsigns")
 require("plugins.diffview")
-require("plugins.toggleterm")
-require('plugins.copilot')
-require("plugins.chatgpt")
+
+-- AI
+require("plugins.chatgpt.index")
+-- require('plugins.copilot')
+
+-- Utils
+-- require("plugins.autopairs")
+-- require("plugins.autotag")
+-- require("plugins.surround")
+require("plugins.comment")

@@ -1,18 +1,13 @@
-local cmp = require("cmp")
-
 -- Add snippets
-vim.g.vsnip_snippet_dir = os.getenv("HOME") .. '/.config/nvim/lua/snippets'
+vim.g.vsnip_snippet_dir = os.getenv("HOME") .. "/.config/nvim/lua/snippets"
 
+local cmp = require("cmp")
 cmp.setup({
     -- Disable auto-show popup
     completion = { completeopt = "menu,menuone,noselect" },
     snippet = {
-        -- REQUIRED - you must specify a snippet engine
         expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-            -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-            -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-            -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+            vim.fn["vsnip#anonymous"](args.body)
         end,
     },
     window = {
@@ -20,11 +15,14 @@ cmp.setup({
         -- documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
-        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-u>"] = cmp.mapping.scroll_docs(-4), -- Up
+        ["<C-d>"] = cmp.mapping.scroll_docs(4), -- Down
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ["<CR>"] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+        }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
@@ -42,10 +40,7 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        { name = "vsnip" }, -- For vsnip users.
-        -- { name = 'luasnip' }, -- For luasnip users.
-        -- { name = 'ultisnips' }, -- For ultisnips users.
-        -- { name = 'snippy' }, -- For snippy users.
+        { name = "vsnip" },
     }, { { name = "buffer" } }),
 })
 
@@ -67,19 +62,3 @@ cmp.setup.cmdline(":", {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
 })
-
--- Set up lspconfig.
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
--- require('lspconfig')[{'lua_ls', 'cssls', 'html', 'tsserver', 'volar'}].setup {
---  capabilities = capabilities
--- }
-local lspconfig = require("lspconfig")
-local servers = { "lua_ls", "cssls", "html", "tsserver", "volar", "tailwindcss", "svelte" }
-
-for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup({
-        capabilities = capabilities,
-        -- You can add other server-specific settings here
-    })
-end

@@ -12,58 +12,61 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    -- Code highlight
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     -- Theme
     {
         "folke/tokyonight.nvim",
         priority = 1000, -- Ensure it loads first
     },
+    { "cormacrelf/dark-notify" }, -- used to synchronize a theme with the system theme
+    -- Code highlight
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    -- Color highlight
+    { "NvChad/nvim-colorizer.lua" },
+    -- LSP
+    { "neovim/nvim-lspconfig" },
+    { "williamboman/mason.nvim" },
+    { "nvimtools/none-ls.nvim" }, -- usage for integrated lsp formattier
     -- AutoComplete
-    { "neovim/nvim-lspconfig", dependencies = { "folke/neodev.nvim" } },
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-buffer" },
     { "hrsh7th/cmp-path" },
     { "hrsh7th/cmp-cmdline" },
     { "hrsh7th/nvim-cmp" },
-    { "williamboman/mason.nvim" },
     { "hrsh7th/cmp-vsnip" },
     { "hrsh7th/vim-vsnip" },
-    ------
+    -- File navigation
     {
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.4",
+        tag = "0.1.8",
         dependencies = { "nvim-lua/plenary.nvim" },
     },
     { "nvim-tree/nvim-tree.lua" },
-    { "nvim-tree/nvim-web-devicons" }, -- for file icons
-    { "jose-elias-alvarez/null-ls.nvim" }, -- usage for integrated lsp formattier
-    { "nvim-lualine/lualine.nvim" },
-    {
-        "akinsho/bufferline.nvim",
-        version = "*",
-        dependencies = "nvim-tree/nvim-web-devicons",
-    },
-    { "folke/which-key.nvim" },
-    { "windwp/nvim-autopairs" },
-    { "windwp/nvim-ts-autotag" }, -- autoclose and autorename tags
-    {
-        "kylechui/nvim-surround",
-        version = "*", -- Use for stability; omit to use `main` branch for the latest features
-        event = "VeryLazy",
-    },
-    { "numToStr/Comment.nvim" },
+    -- Git
     { "lewis6991/gitsigns.nvim" },
     { "sindrets/diffview.nvim" },
-    { "akinsho/toggleterm.nvim", version = "*", config = true },
-    { "cormacrelf/dark-notify" }, -- used to synchronize a theme with the system theme
-    { "zbirenbaum/copilot.lua" },
+    -- AI
     { "robitx/gp.nvim" }, -- chatgpt client
     -- { "Exafunction/codeium.vim", event = "BufEnter" },
-    {
-        "nvimdev/dashboard-nvim",
-        event = "VimEnter",
-        dependencies = { { "nvim-tree/nvim-web-devicons" } },
-    },
+    -- UI
+    { "nvim-tree/nvim-web-devicons" }, -- for file icons (also a dependency for other plugins)
+    { "nvim-lualine/lualine.nvim" },
+    -- Utils
     { "famiu/bufdelete.nvim" }, -- Remove buffer without deleting windows
+    { "folke/which-key.nvim" },
+    { "rmagatti/auto-session" }, -- safe & restore session
+    { "numToStr/Comment.nvim" },
+    -- { "windwp/nvim-autopairs" },
+    -- { "windwp/nvim-ts-autotag" }, -- autoclose and autorename tags
+    -- {
+    --     "kylechui/nvim-surround",
+    --     version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    --     event = "VeryLazy",
+    -- },
+    -- { "akinsho/toggleterm.nvim", version = "*", config = true },
+    -- { "zbirenbaum/copilot.lua" },
+    -- {
+    --     "nvimdev/dashboard-nvim",
+    --     event = "VimEnter",
+    --     dependencies = { { "nvim-tree/nvim-web-devicons" } },
+    -- },
 })
