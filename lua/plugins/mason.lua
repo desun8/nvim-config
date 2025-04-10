@@ -1,1 +1,1 @@
-require("mason").setup()
+return { "williamboman/mason.nvim", opts = {} }

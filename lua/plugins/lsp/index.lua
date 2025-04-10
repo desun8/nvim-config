@@ -1,7 +1,0 @@
-require("plugins.lsp.lua")
-require("plugins.lsp.css")
-require("plugins.lsp.html")
-require("plugins.lsp.ts")
-require("plugins.lsp.vue")
-require("plugins.lsp.tailwindcss")
-require("plugins.lsp.eslint")
