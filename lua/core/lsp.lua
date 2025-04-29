@@ -3,6 +3,10 @@ vim.lsp.config("*", {
 })
 -- TODO: итерировать файлы в ./lsp чтобы не активировать каждый сервер ручками
 vim.lsp.enable("lua_ls")
+vim.lsp.enable("html")
+vim.lsp.enable("css")
+vim.lsp.enable("ts")
+vim.lsp.enable("vue")
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
