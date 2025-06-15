@@ -7,6 +7,8 @@ vim.lsp.enable("html")
 vim.lsp.enable("css")
 vim.lsp.enable("ts")
 vim.lsp.enable("vue")
+vim.lsp.enable("emmet")
+vim.lsp.enable("tailwindcss")
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
