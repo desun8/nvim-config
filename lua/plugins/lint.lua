@@ -1,5 +1,11 @@
 -- Linting
 
+-- Список линтеров для автоустановки
+local linters_to_install = {
+	"eslint_d",
+	"stylelint", 
+}
+
 -- Проверяем наличие конфига в корне проекте
 local function has_config(files)
 	for _, file in ipairs(files) do
@@ -34,6 +40,9 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local lint = require("lint")
+
+		require("utils.mason-installer").install_packages(linters_to_install, "linter")
+
 		local function toggle_linters()
 			if next(lint.linters_by_ft) then
 				lint.linters_by_ft = {}

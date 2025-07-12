@@ -1,14 +1,26 @@
 vim.lsp.config("*", {
 	root_markers = { ".git" },
 })
--- TODO: итерировать файлы в ./lsp чтобы не активировать каждый сервер ручками
-vim.lsp.enable("lua_ls")
-vim.lsp.enable("html")
-vim.lsp.enable("css")
-vim.lsp.enable("ts")
-vim.lsp.enable("vue")
-vim.lsp.enable("emmet")
-vim.lsp.enable("tailwindcss")
+-- Автоустановка серверов из папки lsp/
+local function auto_install_and_enable()
+	-- Включаем серверы из папки lsp/
+	local lsp_dir = vim.fn.stdpath("config") .. "/lsp"
+	local files = vim.fn.glob(lsp_dir .. "/*.lua", false, true)
+	
+	for _, file in ipairs(files) do
+		local server_name = vim.fn.fnamemodify(file, ":t:r")
+		
+		-- Пропускаем файлы, начинающиеся с подчеркивания
+		if not server_name:match("^_") then
+			-- Устанавливаем серверы
+			require("utils.mason-installer").install_packages(server_name, 'lsp')
+			vim.lsp.enable(server_name)
+		end
+	end
+end
+
+-- Запускаем после загрузки Mason
+vim.defer_fn(auto_install_and_enable, 100)
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
