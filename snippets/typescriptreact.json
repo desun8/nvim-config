@@ -1,0 +1,26 @@
+{
+  "React create": {
+    "prefix": "crc",
+    "body": [
+      "import clsx from \"clsx\";",
+      "import cls from './${TM_FILENAME_BASE}.module.css';",
+      "",
+      "interface ${TM_FILENAME_BASE}Props {",
+      "\tclassName?: string;",
+      "\t$1",
+      "}",
+      "",
+      "export const ${TM_FILENAME_BASE} = (props: ${TM_FILENAME_BASE}Props) => {",
+      "\tconst { className, $2 } = props;",
+      "",
+      "\treturn (",
+      "\t\t<div className={clsx(cls.${TM_FILENAME_BASE}, className)}>",
+      "\t\t\t$3",
+      "\t\t</div>",
+      "\t);",
+      "};",
+      ""
+    ],
+    "description": "create react component"
+  }
+}
