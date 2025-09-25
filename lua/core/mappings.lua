@@ -1,13 +1,13 @@
 vim.g.mapleader = " " -- Space
 
-vim.keymap.set("n", "\\", function()
-	local is_netrw = vim.bo.filetype == "netrw"
-	if is_netrw then
-		vim.cmd("Bdelete")
-	else
-		vim.cmd("Ex")
-	end
-end, { desc = "Toggle netrw", silent = true })
+-- vim.keymap.set("n", "\\", function()
+-- 	local is_netrw = vim.bo.filetype == "netrw"
+-- 	if is_netrw then
+-- 		vim.cmd("Bdelete")
+-- 	else
+-- 		vim.cmd("Ex")
+-- 	end
+-- end, { desc = "Toggle netrw", silent = true })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
