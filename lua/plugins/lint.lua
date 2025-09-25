@@ -24,6 +24,7 @@ local eslint_configs = {
 	".eslintrc.yml",
 	".eslintrc.json",
 	"eslint.config.js",
+	"eslint.config.ts",
 }
 
 local stylelint_configs = {
