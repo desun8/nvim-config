@@ -10,18 +10,18 @@ return {
 
 		fzf.setup({
 			winopts = {
-
 				preview = {
 					wrap = true,
 				},
 			},
 			keymap = {
+				builtin = {
+					["<C-u>"] = "preview-page-up",
+					["<C-d>"] = "preview-page-down",
+				},
 				fzf = {
-					["ctrl-u"] = "preview-page-up",
-					["ctrl-d"] = "preview-page-down",
 					["ctrl-k"] = "up",
 					["ctrl-j"] = "down",
-					["ctrl-q"] = "abort",
 				},
 			},
 		})
