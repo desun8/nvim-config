@@ -22,5 +22,15 @@
       ""
     ],
     "description": "create react component"
+  },
+  "useTranslation": {
+    "prefix": "usei18",
+    "body": "const { t } = useTranslation();",
+    "description": "useTranslation i18n"
+  },
+    "useState": {
+    "prefix": "ustate",
+    "body": "const [${1:name}, set${1:name}] = useState$2($3);",
+    "description": "react useState"
   }
 }
