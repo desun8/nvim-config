@@ -92,3 +92,7 @@ vim.opt.termguicolors = true
 
 -- Задаем бордер для всплывающих окон
 vim.o.winborder = "rounded"
+
+-- Folding
+vim.opt.foldmethod = 'indent'  -- or 'syntax', 'expr', 'marker'
+vim.opt.foldlevel = 99         -- start with all folds open
