@@ -22,6 +22,19 @@ return {
 				fzf = {
 					["ctrl-k"] = "up",
 					["ctrl-j"] = "down",
+					-- ["ctrl-q"] = "select-all+accept",
+				},
+			},
+			actions = {
+				files = {
+					["default"] = require("fzf-lua.actions").file_edit,
+					["ctrl-q"] = {
+						fn = function(selected, opts)
+							require("fzf-lua.actions").file_sel_to_qf(selected, opts)
+							vim.cmd("copen")
+						end,
+						prefix = "select-all+",
+					},
 				},
 			},
 		})
@@ -39,5 +52,8 @@ return {
 		vim.keymap.set("n", "<leader>/", function()
 			fzf.blines({ previewer = false })
 		end, { desc = "[/] Fuzzily search in current buffer" })
+
+		vim.keymap.set("n", "<leader>xq", ":copen<CR>", { desc = "Open Quickfi[x] list" })
+		vim.keymap.set("n", "<leader>xc", ":cclose<CR>", { desc = "Close Quickfi[x] list" })
 	end,
 }
