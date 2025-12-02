@@ -9,6 +9,7 @@ return {
 		require("nvim-tree").setup({
 			view = {
 				relativenumber = true,
+				side = "right",
 			},
 			vim.keymap.set("n", "<C-\\>", ":NvimTreeToggle<CR>", { desc = "Toggle nvim-tree" }),
 		})

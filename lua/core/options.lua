@@ -96,3 +96,8 @@ vim.o.winborder = "rounded"
 -- Folding
 vim.opt.foldmethod = 'indent'  -- or 'syntax', 'expr', 'marker'
 vim.opt.foldlevel = 99         -- start with all folds open
+
+-- Фикс зависания в wsl. Используем bash для shell команд (быстрее чем zsh в WSL)
+if require("utils.os_utils").is_linux() then
+    vim.opt.shell = '/bin/bash'
+end
