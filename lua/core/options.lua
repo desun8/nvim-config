@@ -101,3 +101,6 @@ vim.opt.foldlevel = 99         -- start with all folds open
 if require("utils.os_utils").is_linux() then
     vim.opt.shell = '/bin/bash'
 end
+
+-- for auto-session
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
